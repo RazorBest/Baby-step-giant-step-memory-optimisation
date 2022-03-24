@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "Hashtablelp.h"
+#include "./hashtable.h"
 #define LOAD_LIMIT 0.8
 
 static void resize(struct Hashtable *ht);
