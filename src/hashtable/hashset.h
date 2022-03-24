@@ -1,5 +1,5 @@
-#ifndef __HASHTABLE_H
-#define __HASHTABLE_H
+#ifndef __HASHSET_H
+#define __HASHSET_H
 
 #include <inttypes.h>
 #include "../utils/utils.h"
@@ -14,33 +14,29 @@ typedef uint64_t V63;
 
 typedef struct info {
     V63 key;
-    uint64_t value;
 } info;
 
-typedef struct Hashtable {
+typedef struct Hashset {
     info *buckets;
     size_t size;
     size_t hmax;
     double load_limit;
     unsigned int (*hash_function)(void*);
     int (*compare_function)(void*, void*);
-} Hashtable;
+} Hashset;
 
-Hashtable *init_ht(size_t hmax);
+Hashset *init_hs(size_t hmax);
 
-void put(Hashtable *ht, V63 key, V63 value);
+void hs_put(Hashset *hs, V63 key);
 
-int get(Hashtable *ht, V63 key, V63 *val);
+int has_key(Hashset *hs, V63 key);
 
-int has_key(Hashtable *ht, V63 key);
+size_t get_hs_size(Hashset *hs);
 
-size_t get_ht_size(Hashtable *ht);
+size_t get_hs_hmax(Hashset *hs);
 
-size_t get_ht_hmax(Hashtable *ht);
-
-void free_ht(Hashtable *ht);
+void free_hs(Hashset *hs);
 
 unsigned int hash_function_int32(void *a);
-
 
 #endif
