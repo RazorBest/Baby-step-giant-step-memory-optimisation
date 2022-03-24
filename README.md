@@ -15,7 +15,7 @@ The steps of making this project will be:
 
 The algorithm is used to solve the discrete log problem. It uses the meet-in-the-middle approach. Which is: if we want to find a collision between 2 sets, we compute the first set, store it in a HashMap, then iteratively look in the second set for entries in the HashMap. See more details on the [Wikipedia page](https://en.wikipedia.org/wiki/Baby-step_giant-step).
 
-##. 2. Reasoning
+## 2. Reasoning
 
 The HashMap can be implemented with a [Hash table](https://en.wikipedia.org/wiki/Hash_table), which is basically an array of buckets. There are actually a lot of ways to implement the Hash table. The one I will be reffering to is the Open addressing one. It stores one element per bucket and it can be memory efficient.
 
